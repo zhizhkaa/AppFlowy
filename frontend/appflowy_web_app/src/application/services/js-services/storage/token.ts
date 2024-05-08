@@ -29,6 +29,7 @@ export function writeToken(token: string) {
   }
 
   sessionStorage.setItem(tokenKey, token);
+  window.location.reload();
 }
 
 export function invalidToken() {
