@@ -52,7 +52,13 @@ class InitAppWindowTask extends LaunchTask with WindowListener {
       if (position != null) {
         await windowManager.setPosition(position);
       }
+
+      await windowManager.setSize(windowSize);
     });
+
+    // Future.delayed(const Duration(seconds: 2), () {
+    //   windowManager.setSize(windowSize + const Offset(2, 2));
+    // });
 
     unawaited(
       windowsManager.getScaleFactor().then(

@@ -94,7 +94,11 @@ dependencies:
     git:
       url: https://github.com/Xazin/flutter_calendar_view
       ref: "6fe0c98"
-  window_manager: ^0.3.9
+  window_manager:
+    git:
+      url: https://github.com/LucasXu0/window_manager
+      ref: "662968f"
+    # path: C:/Users/lucas/OneDrive/Documents/window_manager
   http: ^1.0.0
   path: ^1.8.3
   mocktail: ^1.0.1
@@ -161,6 +165,7 @@ dev_dependencies:
   run_with_network_images: ^0.0.1
 
 dependency_overrides:
+
   http: ^1.0.0
 
   supabase_flutter:

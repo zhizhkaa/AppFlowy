@@ -13,16 +13,40 @@ import 'package:appflowy_editor/appflowy_editor.dart' hide Log;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:window_manager/window_manager.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   /// Root Page of the app.
   const SplashScreen({super.key, required this.isAnon});
 
   final bool isAnon;
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> with WindowListener {
+  @override
+  void initState() {
+    super.initState();
+    windowManager.addListener(this);
+  }
+
+  @override
+  void dispose() {
+    windowManager.removeListener(this);
+    super.dispose();
+  }
+
+  @override
+  void onWindowFocus() {
+    super.onWindowFocus();
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (isAnon) {
+    if (widget.isAnon) {
       return FutureBuilder<void>(
         future: _registerIfNeeded(),
         builder: (context, snapshot) {

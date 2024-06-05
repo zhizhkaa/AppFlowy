@@ -1,3 +1,4 @@
+# This file controls Flutter-level build steps. It should not be edited.
 cmake_minimum_required(VERSION 3.14)
 
 set(EPHEMERAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ephemeral")
@@ -20,7 +21,6 @@ set(FLUTTER_LIBRARY "${EPHEMERAL_DIR}/flutter_windows.dll")
 # Published to parent scope for install step.
 set(FLUTTER_LIBRARY ${FLUTTER_LIBRARY} PARENT_SCOPE)
 set(FLUTTER_ICU_DATA_FILE "${EPHEMERAL_DIR}/icudtl.dat" PARENT_SCOPE)
-set(DART_FFI_DLL "${CMAKE_CURRENT_SOURCE_DIR}/dart_ffi/dart_ffi.dll" PARENT_SCOPE)
 set(PROJECT_BUILD_DIR "${PROJECT_DIR}/build/" PARENT_SCOPE)
 set(AOT_LIBRARY "${PROJECT_DIR}/build/windows/app.so" PARENT_SCOPE)
 

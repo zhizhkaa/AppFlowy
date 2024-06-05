@@ -27,7 +27,7 @@ import 'package:flowy_infra/theme.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:window_manager/window_manager.dart';
 import 'prelude.dart';
 
 class InitAppWidgetTask extends LaunchTask {
@@ -136,6 +136,10 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
     super.initState();
     // Avoid rebuild routerConfig when the appTheme is changed.
     routerConfig = generateRouter(widget.child);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final size = await windowManager.getSize();
+      await windowManager.setSize(size + const Offset(2, 2));
+    });
   }
 
   @override
